@@ -3,28 +3,43 @@
     <h6 class="welcome-text">Welcome Back, Oluwaseun</h6>
     <p class="request-text">You have 19 new requests and other tasks to do</p>
     <div class="card-container">
-      <div class="card">
-        <img src="@/assets/images/total-candidate.svg" alt="img" />
-        <div class="card-details">
-          <p class="card-number">830</p>
-          <p class="card-text">Total Candidates</p>
+    <div class="card">
+      <div class="card__content">
+        <div>
+          <img src="@/assets/images/total-candidate.svg" />
         </div>
-      </div>
-      <div class="card">
-        <img src="@/assets/images/total-customers.svg" alt="img" />
-        <div class="card-details">
-          <p class="card-number">280</p>
-          <p class="card-text">Total Candidates</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="@/assets/images/total-request.svg" alt="img" />
-        <div class="card-details">
-          <p class="card-number">200</p>
-          <p class="card-text">Total Candidates</p>
+        <div>
+          <h4>830</h4>
+          <p>Total Candidates</p>
         </div>
       </div>
     </div>
+
+    <div class="card card--two">
+      <div class="card__content">
+        <div>
+          <img src="@/assets/images/total-customers.svg" />
+        </div>
+        <div>
+          <h4>280</h4>
+          <p>Total Customers</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__content">
+        <div>
+          <img src="@/assets/images/total-request.svg" />
+        </div>
+
+        <div>
+          <h4>200</h4>
+          <p>Total Requests</p>
+        </div>
+      </div>
+    </div>
+  </div>
     <table>
       <div class="table-top">
         <p class="table-top-text">Resent Sign ups</p>
@@ -87,35 +102,35 @@ export default {
           userType: 'Customer',
         },
         {
-          userId: 'ND1283',
+          userId: 'ND1284',
           regDate: '23.04.2020',
           fullName: 'Abdul Ifeoma',
           email: 'amaranth@outlook.com',
           userType: 'Customer',
         },
         {
-          userId: 'ND1283',
+          userId: 'ND1285',
           regDate: '23.04.2020',
           fullName: 'Abdul Ifeoma',
           email: 'amaranth@outlook.com',
           userType: 'Customer',
         },
         {
-          userId: 'ND1283',
+          userId: 'ND1286',
           regDate: '23.04.2020',
           fullName: 'Abdul Ifeoma',
           email: 'amaranth@outlook.com',
           userType: 'Customer',
         },
         {
-          userId: 'ND1283',
+          userId: 'ND1287',
           regDate: '23.04.2020',
           fullName: 'Abdul Ifeoma',
           email: 'amaranth@outlook.com',
           userType: 'Customer',
         },
         {
-          userId: 'ND1283',
+          userId: 'ND1288',
           regDate: '23.04.2020',
           fullName: 'Abdul Ifeoma',
           email: 'amaranth@outlook.com',
@@ -128,6 +143,12 @@ export default {
 </script>
 
 <style scoped>
+img{
+  width: 52px;
+}
+.image{
+  display: flex;
+}
 .dashboard {
   padding: 54px 64px;
 }
@@ -147,35 +168,31 @@ export default {
 
 .card-container {
   display: flex;
-  margin-top: 30px;
-  /* position: absolute; */
+  width: 90%;
+  margin-left: 34px;
 }
-
 .card {
   display: flex;
-  background-color: white;
-  padding: 46px 32px;
-  border-radius: 16px;
-  align-content: flex-start;
-  width: 307px;
+  /* width: 100%; */
+  width: 337px;
+  height: 144px;
+  margin: 39px auto 129px auto;
+  background: #ffffff;
+  border: 1px solid #ebf1f4;
+  box-shadow: 0px 4px 16px rgba(235, 241, 244, 0.6);
+}
+.card--two {
+  margin-left: 16px;
   margin-right: 16px;
 }
-
-.card-details {
-  margin-left: 24px;
+.card__content {
+  display: flex;
+  margin: auto 0;
+  /* background: red; */
 }
-
-.card-number {
-  font-size: 30px;
-  font-weight: 600;
-  color: #171717;
-}
-
-.card-text {
-  color: black;
-  margin-top: 10px;
-  font-size: 15px;
-}
+.card img {
+  margin: 0 24px;
+} 
 
 /* TABS  */
 
