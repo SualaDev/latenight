@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
     <table>
       <div class="table-top">
         <p class="table-top-text">Resent Sign ups</p>
@@ -47,7 +47,7 @@
           <div
             :class="activeTab.includes('customer-tab') ? 'active' : 'inactive'"
             class="customer-tab"
-            @click="activeTab = 'customer-tab'"
+            @click="setActive('customer-tab')"
           >
             Customer
           </div>
@@ -56,7 +56,7 @@
               activeTab.includes('candidates-tab') ? 'active' : 'inactive'
             "
             class="candidates-tab"
-            @click="activeTab = 'candidates-tab'"
+            @click="setActive('candidates-tab')"
           >
             Candidates
           </div>
@@ -139,6 +139,11 @@ export default {
       ],
     }
   },
+  methods: {
+    setActive(type) {
+      this.activeTab = type
+    }
+  }
 }
 </script>
 
@@ -170,6 +175,7 @@ img{
   display: flex;
   width: 90%;
   margin-left: 34px;
+  margin-bottom: 129px;
 }
 .card {
   display: flex;
