@@ -3,44 +3,44 @@
     <h6 class="welcome-text">Welcome Back, Oluwaseun</h6>
     <p class="request-text">You have 19 new requests and other tasks to do</p>
     <div class="card-container">
-    <div class="card">
-      <div class="card__content">
-        <div>
-          <img src="@/assets/images/total-candidate.svg" />
+      <div class="card">
+        <div class="card__content">
+          <div>
+            <img src="@/assets/images/total-candidate.svg" />
+          </div>
+          <div>
+            <h4>830</h4>
+            <p>Total Candidates</p>
+          </div>
         </div>
-        <div>
-          <h4>830</h4>
-          <p>Total Candidates</p>
+      </div>
+
+      <div class="card card--two">
+        <div class="card__content">
+          <div>
+            <img src="@/assets/images/total-customers.svg" />
+          </div>
+          <div>
+            <h4>280</h4>
+            <p>Total Customers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__content">
+          <div>
+            <img src="@/assets/images/total-request.svg" />
+          </div>
+
+          <div>
+            <h4>200</h4>
+            <p>Total Requests</p>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="card card--two">
-      <div class="card__content">
-        <div>
-          <img src="@/assets/images/total-customers.svg" />
-        </div>
-        <div>
-          <h4>280</h4>
-          <p>Total Customers</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card__content">
-        <div>
-          <img src="@/assets/images/total-request.svg" />
-        </div>
-
-        <div>
-          <h4>200</h4>
-          <p>Total Requests</p>
-        </div>
-      </div>
-    </div>
-    </div>
-    <table>
+    <div class="table-container">
       <div class="table-top">
         <p class="table-top-text">Resent Sign ups</p>
         <div class="tabs">
@@ -62,28 +62,37 @@
           </div>
         </div>
       </div>
-      <div v-show="activeTab == 'customer-tab'" class="tab-1 customer-tab">
-        <tr class="table-head">
-          <th class="user td-th">User ID</th>
-          <th class="reg-date td-th">Registration Date</th>
-          <th class="full-name td-th">Full Name</th>
-          <th class="email td-th">Email Address</th>
-          <th class="td-th">User Type</th>
-        </tr>
-        <tr v-for="el in tableElements" :key="el.userId" class="table-body">
-          <td class="user td-th">{{ el.userId }}</td>
-          <td class="reg-date td-th">{{ el.regDate }}</td>
-          <td class="full-name td-th">{{ el.fullName }}</td>
-          <td class="email td-th">{{ el.email }}</td>
-          <td class="user-type td-th">
-            {{ el.userType }}
-          </td>
-        </tr>
-      </div>
-      <div v-show="activeTab == 'candidates-tab'" class="tab-2">
-        <Table />
-      </div>
-    </table>
+      <table>
+        <thead>
+          <tr class="table-head">
+            <th class="user td-th">User ID</th>
+            <th class="reg-date td-th">Registration Date</th>
+            <th class="full-name td-th">Full Name</th>
+            <th class="email td-th">Email Address</th>
+            <th class="td-th">User Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="el in tableElements" :key="el.userId" class="table-body">
+            <td class="user td-th">{{ el.userId }}</td>
+            <td class="reg-date td-th">{{ el.regDate }}</td>
+            <td class="full-name td-th">{{ el.fullName }}</td>
+            <td class="email td-th">{{ el.email }}</td>
+            <td
+              :class="
+                activeTab.includes('customer-tab')
+                  ? 'user-type-1 td-th'
+                  : 'user-type-2 td-th'
+              "
+            >
+              {{
+                activeTab.includes('customer-tab') ? 'Customers' : 'Candidates'
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -142,16 +151,16 @@ export default {
   methods: {
     setActive(type) {
       this.activeTab = type
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style scoped>
-img{
+img {
   width: 52px;
 }
-.image{
+.image {
   display: flex;
 }
 .dashboard {
@@ -175,7 +184,7 @@ img{
   display: flex;
   width: 90%;
   margin-left: 34px;
-  margin-bottom: 129px;
+  margin-bottom: 0;
 }
 .card {
   display: flex;
@@ -198,7 +207,7 @@ img{
 }
 .card img {
   margin: 0 24px;
-} 
+}
 
 /* TABS  */
 
@@ -238,9 +247,12 @@ img{
 }
 
 /* TABLE  */
+.table-container {
+  background-color: #fff;
+}
 
 table {
-  margin-top: 100px;
+  /* margin-top: 100px; */
   width: 100%;
   background-color: white;
   border-radius: 8px;
@@ -286,7 +298,11 @@ th {
   width: 28%;
 }
 
-.user-type {
+.user-type-1 {
   color: rgba(247, 148, 29, 1);
+}
+
+.user-type-2 {
+  color: rgba(0, 166, 157, 1);
 }
 </style>
